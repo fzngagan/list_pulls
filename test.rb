@@ -7,4 +7,3 @@ client.auto_paginate = true
 pulls = client.pulls(repository, state: 'closed', base: 'master').reject{|pull| !pull[:merged_at] }.sort_by(&:merged_at).reverse
 
 puts pulls.map {|pull_req| {title: pull_req[:title], number: pull_req[:number]}}
-# merged_at
